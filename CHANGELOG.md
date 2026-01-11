@@ -5,7 +5,32 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## [Unreleased]
+## [1.3.0] - 2025-01-11
+
+### Added
+- Plugin Marketplace support with `.claude-plugin/marketplace.json`
+- One-command Claude Code installation via `/plugin marketplace add`
+- Prominent Claude Code installation section at top of README
+- Claude Code badge for quick identification
+- Detailed binary installation instructions with location guidance
+- Installation steps for Windows, Mac, and Linux users
+
+### Changed
+- Updated QUICKSTART.md with Claude Code section at the beginning
+- Enhanced docs/USAGE.md with Claude Code integration guide
+- Improved download table with installation locations
+- Added collapsible installation steps for each platform
+
+### Installation
+```bash
+# Claude Code users (simplest)
+/plugin marketplace add geekjourneyx/md2wechat-skill
+/plugin install md2wechat@geekjourneyx-md2wechat-skill
+```
+
+---
+
+## [1.2.0] - 2025-01-11
 
 ### Added
 - Claude Code Skill support with `.claude-plugin/plugin.json`
@@ -13,6 +38,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - New API themes: `bytedance`, `apple`, `sports`, `chinese`, `cyber`
 - Comprehensive troubleshooting guide in SKILL.md
 - API theme selection section in README.md
+- CHANGELOG.md with version history and upgrade guide
 
 ### Changed
 - Updated themes.md with complete API and AI theme documentation
@@ -77,7 +103,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 | Version | Date | Description |
 |---------|------|-------------|
-| [Unreleased] | TBD | Claude Code plugin support, new API themes, enhanced documentation |
+| [1.3.0] | 2025-01-11 | Plugin Marketplace support, enhanced installation docs |
+| [1.2.0] | 2025-01-11 | Claude Code plugin support, new API themes |
 | [1.1.0] | 2025-01-11 | YAML theme system, AI themes (autumn-warm, spring-fresh, ocean-calm) |
 | [1.0.1] | 2025-01-11 | Fixed Mermaid diagrams for GitHub rendering |
 | [1.0.0] | 2025-01-11 | Initial release with full md2wechat functionality |
