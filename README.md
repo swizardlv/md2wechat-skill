@@ -40,22 +40,27 @@ flowchart LR
     B -->|API 模式| C[调用 md2wechat.cn API]
     C --> D[获取 HTML]
 
-    B -->|AI 模式<br/>推荐| E[Claude AI 生成 HTML]
+    B -->|AI 模式 推荐| E[Claude AI 生成 HTML]
     E --> F[精美排版]
 
     D --> G[预览效果]
     F --> G
 
-    G --> H{满意吗？}
+    G --> H{满意吗}
     H -->|不满意| B
     H -->|满意| I[上传图片]
     I --> J[发送到微信草稿箱]
-    J --> K[完成✅]
+    J --> K[完成]
 
-    style A fill:#e3f2fd
-    style E fill:#fff3e0
-    style J fill:#e8f5e9
-    style K fill:#c8e6c9
+    classDef nodeA fill:#e3f2fd,stroke:#2196f3,color:#0d47a1
+    classDef nodeE fill:#fff3e0,stroke:#ff9800,color:#e65100
+    classDef nodeJ fill:#e8f5e9,stroke:#4caf50,color:#1b5e20
+    classDef nodeK fill:#c8e6c9,stroke:#4caf50,color:#1b5e20
+
+    class A nodeA
+    class E nodeE
+    class J nodeJ
+    class K nodeK
 ```
 
 ### 两种转换模式
@@ -69,33 +74,31 @@ flowchart LR
 
 ```mermaid
 flowchart LR
-    subgraph 写作阶段
-        A1[📝 Markdown] --> A2[🖼️ 插入图片]
-    end
+    A1[Markdown 写作] --> A2[插入图片]
+    A2 --> B1{选择模式}
 
-    subgraph 转换阶段
-        B1{选择模式}
-        B1 -->|API| B2[md2wechat.cn]
-        B1 -->|AI| B3[Claude AI]
-        B2 --> B4[✅ HTML 生成]
-        B3 --> B4
-    end
+    B1 -->|API| B2[md2wechat.cn]
+    B1 -->|AI| B3[Claude AI]
 
-    subgraph 发布阶段
-        C1[👀 预览效果] --> C2{满意?}
-        C2 -->|调整| B1
-        C2 -->|OK| C3[📤 上传图片]
-        C3 --> C4[📬 发送草稿]
-    end
+    B2 --> B4[HTML 生成]
+    B3 --> B4
 
-    A2 --> B1
-    B4 --> C1
-    C4 --> C5[🎉 完成]
+    B4 --> C1[预览效果]
+    C1 --> C2{满意吗}
 
-    style A1 fill:#e3f2fd
-    style B3 fill:#fff3e0
-    style C4 fill:#e8f5e9
-    style C5 fill:#c8e6c9
+    C2 -->|调整| B1
+    C2 -->|OK| C3[上传图片]
+    C3 --> C4[发送草稿]
+    C4 --> C5[完成]
+
+    classDef write fill:#e3f2fd,stroke:#2196f3,color:#0d47a1
+    classDef ai fill:#fff3e0,stroke:#ff9800,color:#e65100
+    classDef done fill:#e8f5e9,stroke:#4caf50,color:#1b5e20
+    classDef success fill:#c8e6c9,stroke:#4caf50,color:#1b5e20
+
+    class A1,A2 write
+    class B3 ai
+    class C4,C5 done
 ```
 
 ---
